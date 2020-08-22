@@ -20,7 +20,7 @@ router.post("/register", middleware.validateUser, (req, res) => {
       res.status(201).json({ data: user });
     })
     .catch((err) => {
-      res.status(500).json({ message: err.message });
+      res.status(500).json({ message: err.message, from: "API" });
     });
 });
 
