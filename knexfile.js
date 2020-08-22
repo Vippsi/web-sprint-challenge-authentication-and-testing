@@ -21,13 +21,7 @@ module.exports = {
   },
   production: {
     client: 'pg',
-    connection: {
-      host: process.env.DATABASE_URL,
-      port: process.env.DATABASE_PORT ||5432 ,
-      database: process.env.DATABASE || 'dep7jqpb9umroo',
-      user: process.env.DATABASE_USER || 'zeywvxlcdeslkz',
-      password: process.env.DATABASE_PASSWORD || '72341fe5580ec988eb48064c11fdf8d225e9a244708b28e67bef5c8dccc6c199',
-    },
+    connection: process.env.DATABASE_URL,
     useNullAsDefault: true,
     migrations: {
       directory: './database/migrations',
