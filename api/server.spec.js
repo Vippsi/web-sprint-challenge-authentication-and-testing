@@ -68,5 +68,31 @@ describe("server", () => {
           expect(res.type).toMatch(/json/);
         });
     });
+    it("Should return 401 if passwords do not match", async () => {
+        await supertest(server)
+        .post("/api/auth/register")
+        .send({ username: "Test", password: "pass" });
+
+      return supertest(server)
+        .post("/api/auth/login")
+        .send({ username: "Test", password: "pas" })
+        .then((res) => {
+          expect(res.status).toBe(401);
+        });
+    })
+    it("Should return a token", async () => {
+        await supertest(server)
+        .post("/api/auth/register")
+        .send({ username: "Test", password: "pass" });
+
+      return supertest(server)
+        .post("/api/auth/login")
+        .send({ username: "Test", password: "pass" })
+        .then((res) => {
+            console.log(res.body.token)
+          expect(res.body.token).not.toBeUndefined()
+        });
+    })
+    
   });
 });
