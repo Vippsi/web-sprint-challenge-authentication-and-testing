@@ -22,7 +22,7 @@ module.exports = {
   production: {
     client: 'pg',
     connection: {
-      host: process.env.DATABASE_URL || 'postgres://zeywvxlcdeslkz:72341fe5580ec988eb48064c11fdf8d225e9a244708b28e67bef5c8dccc6c199@ec2-18-214-211-47.compute-1.amazonaws.com:5432/dep7jqpb9umroo',
+      host: process.env.DATABASE_URL || 'ec2-18-214-211-47.compute-1.amazonaws.com',
       port: process.env.DATABASE_PORT ||5432 ,
       database: process.env.DATABASE || 'dep7jqpb9umroo',
       user: process.env.DATABASE_USER || 'zeywvxlcdeslkz',
