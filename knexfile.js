@@ -1,8 +1,8 @@
-const dotenv = require("dotenv").config()
+const dotenv = require("dotenv").config();
 
 module.exports = {
   development: {
-    client: 'pg',
+    client: "pg",
     connection: {
       host: "localhost",
       port: 5432,
@@ -12,35 +12,30 @@ module.exports = {
     },
     useNullAsDefault: true,
     migrations: {
-      directory: './database/migrations',
-      tableName: 'dbmigrations',
+      directory: "./database/migrations",
+      tableName: "dbmigrations",
     },
-    seeds: { directory: './database/seeds' },
+    seeds: { directory: "./database/seeds" },
   },
   production: {
-    client: 'pg',
-    connection: {
-      host: process.env.DATABASE_URL,
-      port: process.env.DATABASE_PORT,
-      database: process.env.DATABASE,
-      user: process.env.DATABASE_USER,
-      password: process.env.DATABASE_PASSWORD,
-    },
+    client: "pg",
+    connection: process.env.DATABASE_URL,
+
     useNullAsDefault: true,
     migrations: {
-      directory: './database/migrations',
-      tableName: 'dbmigrations',
+      directory: "./database/migrations",
+      tableName: "dbmigrations",
     },
-    seeds: { directory: './database/seeds' },
+    seeds: { directory: "./database/seeds" },
   },
   testing: {
-    client: 'sqlite3',
-    connection: { filename: './database/test.db3' },
+    client: "sqlite3",
+    connection: { filename: "./database/test.db3" },
     useNullAsDefault: true,
     migrations: {
-      directory: './database/migrations',
-      tableName: 'dbmigrations',
+      directory: "./database/migrations",
+      tableName: "dbmigrations",
     },
-    seeds: { directory: './database/seeds' },
+    seeds: { directory: "./database/seeds" },
   },
 };
