@@ -1,6 +1,6 @@
 const dotenv = require("dotenv").config()
 
-const postgresConnection = process.env.DATABASE_URL || 'postgresql://postgres@localhost/users'
+const postgressConnection = process.env.DATABASE_URL || 'postgresql://postgres@localhost'
 
 module.exports = {
   development: {
@@ -21,7 +21,13 @@ module.exports = {
   },
   production: {
     client: 'pg',
-    connection: postgresConnection,
+    connection: {
+      host: process.env.DATABASE_URL || 'postgres://zeywvxlcdeslkz:72341fe5580ec988eb48064c11fdf8d225e9a244708b28e67bef5c8dccc6c199@ec2-18-214-211-47.compute-1.amazonaws.com:5432/dep7jqpb9umroo',
+      port: process.env.DATABASE_PORT ||5432 ,
+      database: process.env.DATABASE || 'dep7jqpb9umroo',
+      user: process.env.DATABASE_USER || 'zeywvxlcdeslkz',
+      password: process.env.DATABASE_PASSWORD || '72341fe5580ec988eb48064c11fdf8d225e9a244708b28e67bef5c8dccc6c199',
+    },
     useNullAsDefault: true,
     migrations: {
       directory: './database/migrations',
